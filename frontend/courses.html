@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Catalog - EduAI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+
+  <div style="min-height: 100vh; padding: 40px 0;">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div style="display: flex; gap: 8px; color: var(--text-secondary); margin-bottom: 24px; font-size: 0.9rem;">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Home</a>
+        <span>/</span>
+        <span style="color: #fff;">Catalog</span>
+      </div>
+
+      <h1 style="font-size: 2.5rem; margin-bottom: 12px;">Explore Courses</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 40px;">Learn from our massive database of masterclass topics.</p>
+
+      <!-- Search and Filter Bar -->
+      <div style="display: flex; gap: 24px; flex-direction: column; margin-bottom: 40px;">
+        <form id="catalog-search-form" style="display: flex; background: rgba(22, 28, 45, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 4px; max-width: 500px;">
+          <div style="display: flex; align-items: center; flex: 1; padding-left: 16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              id="catalog-search-input"
+              type="text"
+              placeholder="Search by title, tags or categories..."
+              style="width: 100%; background: transparent; border: none; outline: none; color: #fff; padding: 12px; font-size: 0.95rem;"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div id="category-filters" style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Courses Grid Container -->
+      <div id="catalog-container">
+        <div style="display: flex; justify-content: center; padding: 100px;">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/courses.js"></script>
+</body>
+</html>

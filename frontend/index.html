@@ -1,13 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduAI - AI-Powered Learning Marketplace</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Dynamic Navbar -->
+  <nav id="navbar"></nav>
+
+  <!-- Hero Section -->
+  <section style="padding: 100px 0 80px; text-align: center; background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);">
+    <div class="container" style="max-width: 800px;">
+      <span style="background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+        Next-Generation Learning
+      </span>
+      
+      <h1 style="font-size: 3.5rem; margin-top: 20px; margin-bottom: 24px; line-height: 1.15;">
+        Unlock Your Tech Potential with <span style="background: linear-gradient(to right, #6366f1, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI-Powered</span> Learning
+      </h1>
+      
+      <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 40px; line-height: 1.6;">
+        Browse masterclasses created by expert instructors, get mathematically personalized NLP recommendations, and test your knowledge with instant AI-generated quizzes.
+      </p>
+
+      <form id="hero-search-form" style="display: flex; background: rgba(17, 24, 39, 0.8); border: 1px solid var(--border-color); border-radius: 12px; padding: 6px; max-width: 600px; margin: 0 auto 50px; box-shadow: var(--shadow-md);">
+        <div style="display: flex; align-items: center; flex: 1; padding-left: 16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            id="hero-search-input"
+            type="text"
+            placeholder="What skill do you want to learn today?"
+            style="width: 100%; background: transparent; border: none; outline: none; color: #fff; padding: 12px; font-size: 1rem;"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" style="border-radius: 8px;">Search</button>
+      </form>
+
+      <!-- Core Features -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;">
+        <div class="glass-card" style="padding: 32px; text-align: left;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Personalized NLP Engine</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+            Our backend OpenNLP platform matches course tags and descriptions against your student profile vector for mathematical similarity.
+          </p>
+        </div>
+        <div class="glass-card" style="padding: 32px; text-align: left;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+            <circle cx="12" cy="8" r="7"></circle>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+          </svg>
+          <h3 style="font-size: 1.25rem; margin-bottom: 12px;">AI Quiz Generation</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+            Instructors can generate high-quality MCQ quiz templates instantly from notes using structured LLM APIs.
+          </p>
+        </div>
+        <div class="glass-card" style="padding: 32px; text-align: left;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Secure Razorpay Integration</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+            Integrated directly with Razorpay Checkout. Order amounts are verified strictly on the backend via HMAC signatures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses Section -->
+  <section style="padding: 80px 0; border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
+        <div>
+          <h2 style="font-size: 2.2rem;">Featured Courses</h2>
+          <p style="color: var(--text-secondary); margin-top: 8px;">Start learning from our top approved masterclasses</p>
+        </div>
+        <a href="courses.html" class="btn btn-outline">View All Courses</a>
+      </div>
+
+      <div id="courses-container">
+        <div style="display: flex; justify-content: center; padding: 60px;">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background: rgba(10, 15, 26, 0.95); border-top: 1px solid var(--border-color); padding: 60px 0 40px; color: var(--text-secondary); font-size: 0.9rem;">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <span style="font-size: 1.25rem; color: #fff; font-weight: 800;">EduAI</span>
+        </div>
+        <p style="max-width: 300px; line-height: 1.6;">
+          A premium, secure learning marketplace helping students master new coding skills with AI.
+        </p>
+      </div>
+      <div style="display: flex; gap: 60px;">
+        <div>
+          <h4 style="color: #fff; margin-bottom: 16px;">Marketplace</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+            <li><a href="courses.html" style="color: inherit; text-decoration: none;">Browse Courses</a></li>
+            <li><a href="login.html" style="color: inherit; text-decoration: none;">Student Sign In</a></li>
+            <li><a href="register.html" style="color: inherit; text-decoration: none;">Join as Instructor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #fff; margin-bottom: 16px;">Technology</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+            <li><span style="color: inherit;">Spring Boot & JPA</span></li>
+            <li><span style="color: inherit;">Apache OpenNLP Match</span></li>
+            <li><span style="color: inherit;">Gemini AI Quizzes</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="border-top: 1px solid var(--border-color); padding-top: 24px; display: flex; justify-content: space-between;">
+      <span>© 2026 EduAI. All rights reserved.</span>
+      <span>Made for modern software engineers.</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/home.js"></script>
+</body>
 </html>

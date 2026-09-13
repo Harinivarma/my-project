@@ -71,6 +71,19 @@ body {
   padding: 0 24px;
 }
 
+/* Navbar */
+.navbar {
+  height: 70px;
+  background: rgba(17, 24, 39, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
@@ -198,6 +211,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .sidebar-link {
@@ -210,6 +224,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   border-radius: 8px;
   transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
 }
 
 .sidebar-link:hover, .sidebar-link.active {

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Course Content - EduAI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 32px; padding: 0 8px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        </svg>
+        <span style="font-size: 1.2rem; font-weight: 800;">Instructor Portal</span>
+      </div>
+      
+      <a href="instructor-dashboard.html" class="sidebar-link active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg> Manage Courses
+      </a>
+      <a href="create-course.html" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg> Create Course
+      </a>
+      <a href="profile.html" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg> My Profile
+      </a>
+      
+      <button id="sidebar-logout-btn" class="sidebar-link" style="margin-top: auto;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg> Log Out
+      </button>
+    </aside>
+
+    <!-- Main Panel Content -->
+    <main class="main-content">
+      <div style="margin-bottom: 32px;">
+        <a href="instructor-dashboard.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-weight: 600; margin-bottom: 16px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg> Back to Dashboard
+        </a>
+        <h1 style="font-size: 2.2rem;">Syllabus: <span id="course-title-header">Course</span></h1>
+        <p style="color: var(--text-secondary); margin-top: 4px;">Add individual video modules and learning documentation</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.4fr 1.6fr; gap: 32px;">
+        <!-- Add/Edit Lesson Form -->
+        <div class="glass-card" style="padding: 32px; height: fit-content;">
+          <h2 id="form-title" style="font-size: 1.3rem; margin-bottom: 24px;">Add New Module</h2>
+          
+          <form id="lesson-form">
+            <div class="form-group">
+              <label class="form-label" for="lessonTitle">Lesson Title</label>
+              <input
+                id="lessonTitle"
+                type="text"
+                class="form-input"
+                placeholder="e.g. Introduction to OOP Paradigm"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="videoUrl">Video URL</label>
+              <input
+                id="videoUrl"
+                type="url"
+                class="form-input"
+                placeholder="https://example.com/stream/video.mp4"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sequenceOrder">Sequence Order</label>
+              <input
+                id="sequenceOrder"
+                type="number"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label class="form-label" for="notes">Notes / Content</label>
+              <textarea
+                id="notes"
+                class="form-input"
+                rows="5"
+                placeholder="Write full markdown, details, or exercises for this lesson..."
+                style="resize: vertical;"
+              ></textarea>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+              <button id="lesson-submit-btn" type="submit" class="btn btn-primary" style="flex: 1;">
+                Add Lesson Module
+              </button>
+              <button id="lesson-cancel-btn" type="button" class="btn btn-outline" style="flex: 1; display: none;">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Lessons Outline list -->
+        <div class="glass-card" style="padding: 32px;">
+          <h2 style="font-size: 1.3rem; margin-bottom: 24px;">Current Syllabus Outline</h2>
+          
+          <div id="lessons-list-container">
+            <div style="display: flex; justify-content: center; padding: 40px;">
+              <div class="spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/manage-content.js"></script>
+</body>
+</html>
